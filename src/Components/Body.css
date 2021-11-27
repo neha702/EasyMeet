@@ -1,0 +1,17 @@
+.navbar-custom {
+    background-color: #6A5ACD;
+}
+.navbar-custom .navbar-brand
+{
+color:white
+}
+.btn-custom
+{
+    background-color:#6A5ACD ;
+    color: white;
+}
+.btn-real
+{
+    background-color:white ; 
+    color:black;
+}
