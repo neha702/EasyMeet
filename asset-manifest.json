@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/EasyMeet/static/css/main.f3c0715f.chunk.css",
+    "main.js": "/EasyMeet/static/js/main.2bf78bbd.chunk.js",
+    "main.js.map": "/EasyMeet/static/js/main.2bf78bbd.chunk.js.map",
+    "runtime-main.js": "/EasyMeet/static/js/runtime-main.213da3aa.js",
+    "runtime-main.js.map": "/EasyMeet/static/js/runtime-main.213da3aa.js.map",
+    "static/js/2.734960ae.chunk.js": "/EasyMeet/static/js/2.734960ae.chunk.js",
+    "static/js/2.734960ae.chunk.js.map": "/EasyMeet/static/js/2.734960ae.chunk.js.map",
+    "static/js/3.dfbea286.chunk.js": "/EasyMeet/static/js/3.dfbea286.chunk.js",
+    "static/js/3.dfbea286.chunk.js.map": "/EasyMeet/static/js/3.dfbea286.chunk.js.map",
+    "index.html": "/EasyMeet/index.html",
+    "static/css/main.f3c0715f.chunk.css.map": "/EasyMeet/static/css/main.f3c0715f.chunk.css.map",
+    "static/js/2.734960ae.chunk.js.LICENSE.txt": "/EasyMeet/static/js/2.734960ae.chunk.js.LICENSE.txt",
+    "static/media/undraw_remotely_2j6y.c32d0b18.svg": "/EasyMeet/static/media/undraw_remotely_2j6y.c32d0b18.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.213da3aa.js",
+    "static/js/2.734960ae.chunk.js",
+    "static/css/main.f3c0715f.chunk.css",
+    "static/js/main.2bf78bbd.chunk.js"
+  ]
+}
