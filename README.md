@@ -44,7 +44,7 @@
 
 ### How to get to the app?
 
-1) First page that we get after npm run start is the registartion page,if we give username and password we get a pop that asks us to move to login page.
+1) First page that we get after npm run start is the registration page,if we give username and password we get a pop that asks us to move to login page.
 
 2) If we enter username and password that already exist in database for registration page,we get popup for error message.
 
@@ -76,15 +76,15 @@
 
 9) Azure Cloud MySQL DB is used here ,credentials present in Server ->expressweb.js file.
 
-10) Run there npm  start.
+10) Then do cd Client ,run there npm  start.
 
 11) Then open another terminal ,type cd Server.
 
 12)  Do the nodemon expressweb.js
 
-14)After that one can see a page opening at http://localhost:3000/.
+13) After that one can see a page opening at http://localhost:3000/.
 
-15) Route http://localhost:3000/register to get to registration page.
+14) Route http://localhost:3000/register to get to registration page.
 
 
 
