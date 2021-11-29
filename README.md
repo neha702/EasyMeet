@@ -74,7 +74,7 @@
 
 8) Type cd .. in terminal.
 
-9) Cloud DB is used here ,credentials present in Server ->expressweb.js file.
+9) Azure Cloud MySQL DB is used here ,credentials present in Server ->expressweb.js file.
 
 10) Run there npm  start.
 
