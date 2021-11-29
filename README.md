@@ -60,7 +60,7 @@
 
 1) Clone the repo by git clone https://github.com/neha702/EasyMeet.git.
 
-2) Type cd Easymeet in terminal.
+2) Type cd <name to which repo is cloned> in terminal.
 
 3) Type cd Client.
 
@@ -84,7 +84,7 @@
 
 14)After that one can see a page opening at http://localhost:3000/.
 
-15) Route http://localhost:3000/register to get to registartion page.
+15) Route http://localhost:3000/register to get to registration page.
 
 
 
