@@ -21,6 +21,13 @@
 
 ![image](https://img.shields.io/badge/Socket.io-010101?&style=for-the-badge&logo=Socket.io&logoColor=white)      ![image](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
+### Progress flow
+
+
+![image](https://user-images.githubusercontent.com/51429924/143878913-8f1163cf-2298-410e-951b-b0972734848f.png)
+
+
+
 ### Glimpses of Interface:
 
 1) Sign up and login page
