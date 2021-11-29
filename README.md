@@ -102,6 +102,6 @@
    
    All details regarding private key and project ID present there.
    
- 4) Cloud DB used here,credentials present in expressweb.js file.
+ 4) Cloud DB used here,credentials present in expressweb.js file.If you want to connect to your own cloud db,make sure to change user,host,password,database and table name in expressweb.js.
  
  5) The web-app is responsive in nature but try to view in PC for best experience.
