@@ -21,17 +21,14 @@ const { Connection, Request } = require("tedious");
   const config = {
   authentication: {
   options: {
-  userName:
-  "svk", 
+  userName: "svk", 
   // update me
-  password:
-  "Abcd@1234" 
+  password:"Abcd@1234" 
   // update me
   
   },
   
-  type:
-  "default"
+  type: "default"
   
   },
   
@@ -86,8 +83,7 @@ const { Connection, Request } = require("tedious");
   
   app.use(cors());
   
-  const 
-  io = require("socket.io")(server, {
+  const   io = require("socket.io")(server, {
   
   cors: {
   
@@ -149,23 +145,18 @@ const { Connection, Request } = require("tedious");
   
   {
   
-  const 
-  username=req.body.username;
+  const  username=req.body.username;
   
-  const 
-  password=req.body.password;
+  const  password=req.body.password;
   
   console.log(req.body);
   
   
-  const 
-  request = new 
-  Request(
+  const  request = new  Request(
   
   "INSERT INTO utudent (username,password) VALUES ('"+username+"','"+password+"')",
   
-  (err, 
-  rowCount) => {
+  (err,  rowCount) => {
   
   if (err) {
   
@@ -194,21 +185,15 @@ const { Connection, Request } = require("tedious");
   
   {
   
-  const 
-  username=req.body.username;
+  const  username=req.body.username;
   
-  const 
-  password=req.body.password;
+  const  password=req.body.password;
   
   
-  const 
-  request = new 
-  Request(
-  
+  const request = new Request(
   "SELECT * FROM utudent WHERE username='"+username+"' AND password='"+password+"'",
   
-  (err, 
-  rowCount) => {
+  (err,  rowCount) => {
   
   if (err) {
   
@@ -227,8 +212,7 @@ const { Connection, Request } = require("tedious");
   
   
   
-  request.on("row",
-  columns  => {
+  request.on("row", columns  => {
   
   if(columns.length>0)
   
