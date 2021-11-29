@@ -62,11 +62,11 @@
 
 2) Type cd Easymeet in terminal.
 
-3) Type cd Desktop.
+3) Type cd Client.
 
-4) Type cd my-appnpx.
+4) Run npm install to install all the dependencies.
 
-5) Run npm install to install all the dependencies.
+5) Type cd ..
 
 6) Then type cd Server.
 
@@ -74,19 +74,17 @@
 
 8) Type cd .. in terminal.
 
-9) Make sure you connect server to MySQL DB by providing correct port no. and database name.
+9) Cloud DB is used here ,credentials present in Server ->expressweb.js file.
 
-9) Run there npm  start.
+10) Run there npm  start.
 
-10) Then open another terminal ,type cd Desktop.
+11) Then open another terminal ,type cd Server.
 
-11) Type cd my-appnpx.
+12)  Do the nodemon expressweb.js
 
-13) Type cd Server
+14)After that one can see a page opening at http://localhost:3000/.
 
-14) Do the nodemon expressweb.js
-
-15) After that one can see a page opening at http://localhost:3000/ ,that is the registration page.
+15) Route http://localhost:3000/register to get to registartion page.
 
 
 
@@ -104,6 +102,6 @@
    
    All details regarding private key and project ID present there.
    
- 4) Make sure you change the DB port no. and database,also the table name before connecting to local machine MySQL WorkBench.
+ 4) Cloud DB used here,credentials present in expressweb.js file.
  
  5) The web-app is responsive in nature but try to view in PC for best experience.
