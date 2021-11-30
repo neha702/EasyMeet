@@ -73,7 +73,7 @@
 
 1) Clone the repo by git clone https://github.com/neha702/EasyMeet.git.
 
-2) Type cd <name to which repo is cloned> in terminal.
+2) Type cd EasyMeet in terminal.
 
 3) Type cd Client.
 
