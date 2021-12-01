@@ -22,7 +22,7 @@ export const Login = () => {
     };
     var servers = {
       method: 'post',
-      url: 'http://localhost:3001',
+      url: 'http://localhost:3001/login',
       headers: {
         'Project-ID': projectID,
         'User-Name': username,
