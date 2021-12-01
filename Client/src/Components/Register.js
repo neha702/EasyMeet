@@ -25,7 +25,7 @@ const Register = () => {
     };
     var servers = {
       method: 'post',
-      url: 'http://localhost:3001',
+      url: 'http://localhost:3001/register',
       data: user,
     };
     axios(config)
