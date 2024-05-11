@@ -5,14 +5,25 @@ import { Sidebar, SidebarItem } from 'react-responsive-sidebar';
 import { BsFillChatRightFill } from 'react-icons/bs';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillCameraVideoFill } from 'react-icons/bs';
-import { FaSignOutAlt } from 'react-icons/fa';
+import { AuthContext, CurrentUsers } from "../context/CurrentUserContext";
 
 const Home = () => {
-    const signout = (e) => {
+    const signout = async(e) => {
         e.preventDefault();
-        window.localStorage.clear();
-        window.location.href = '/login';
-        console.log("Done");
+        try{
+            const response=await fetch('http://localhost:8080/logout',{
+                method:'GET'
+            });
+            if (response.ok){
+                console.log("Logged out successfully,redirecting to login page")
+                window.location.href = '/login';
+                console.log("Successfully redirected to login page.");
+            }else{
+                console.error("Couldn't log out")
+            }
+        }catch(error){
+                console.error("Some exception or network error occured.")
+        }
     };
     const items = [
         <h3 style={{ margin: 15 }}>Welcome {localStorage.getItem('username')}!</h3>
@@ -38,7 +49,6 @@ const Home = () => {
                 <div className="welcome-area" id="welcome">
                     <div className="header-text">
                         <div className="container">
-
                             <div className="row">
                                 <div className="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
                                     <h1 className={{ color: "black" }}><strong>EasyMeet</strong></h1>

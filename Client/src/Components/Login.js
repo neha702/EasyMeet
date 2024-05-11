@@ -4,56 +4,55 @@ import { useState } from 'react';
 const projectID = "823247ef-1b1e-425f-bdaf-770785676dea"
 import axios from 'axios'
 import Navbar from './Navbar';
+import { Icon } from 'react-icons-kit'
+import {eye} from 'react-icons-kit/feather/eye'
+import {eyeOff} from 'react-icons-kit/feather/eyeOff'
+
+
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [type,setType]=useState("password");
+  const [visible,setVisibility]=useState(eyeOff);
+  const [disable,setDisable]=useState('typing');
+
+  const handleToggle=()=>{
+    if(type==="password"){
+      setVisibility(eye)
+      setType('text')
+    }else{
+      setVisibility(eyeOff)
+      setType("password")
+    }
+  }
+
   const login = (e) => {
     e.preventDefault(e);
-
-    var config = {
-      method: 'post',
-      url: 'https://api.chatengine.io/chats/',
-      headers: {
-        'Project-ID': projectID,
-        'User-Name': username,
-        'User-Secret': password
-      }
-    };
+    setDisable("submitted")
+    var user = { "username": username, "password": password };
     var servers = {
       method: 'post',
-      url: 'http://localhost:3001/login',
-      headers: {
-        'Project-ID': projectID,
-        'User-Name': username,
-        'User-Secret': password
-      }
+      url: 'http://localhost:8080/login',
+      data: user,
+      withCredentials:true
     };
-    axios(config)
+    axios(servers)
       .then(function (response) {
-        //console.log(JSON.stringify(response.data));
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
+        console.log('Extracted from DB')
         window.location.href = '/home';
         setError('')
         setUsername('')
         setPassword('')
+        setDisable('typing')
       })
       .catch(function (error) {
         setError('Oops, incorrect credentials.');
+        console.log('Couldnt find in DB')
         setUsername('')
         setPassword('')
+        setDisable('typing')
       });
-
-
-    axios(servers)
-      .then(function (response) {
-        //console.log(JSON.stringify(response.data));
-        console.log('Extracted from DB')
-      })
-      .catch(function (error) {
-        console.log('couldnt extract from DB')
-      }); ``
   };
   return (
     <>
@@ -77,20 +76,19 @@ export const Login = () => {
                     <form onSubmit={login}>
                       <div className="form-group first">
                         <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" id="username" onChange={(e) => {
+                        <input type="text" className="form-control" id="username" value={username} onChange={(e) => {
                           setUsername(e.target.value);
                         }} required />
                       </div>
                       <br />
                       <div className="form-group last mb-4">
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" id="password" onChange={(e) => {
+                        <input type={type} className="form-control" id="password" value={password} onChange={(e) => {
                           setPassword(e.target.value);
                         }} required />
-
+                        <span class="shift-right" onClick={handleToggle}><Icon icon={visible} size={25}/></span>
                       </div>
-                      <input type="submit" value="Log In" class="btn btn-block btn-custom" data-toggle="modal" data-target="#exampleModal" />
-
+                      <input type="submit" value="Log In" class="btn btn-block btn-custom" data-toggle="modal" data-target="#exampleModal"  disabled={username.length==0 || password.length<8 || disable==='submitted'}/>
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">

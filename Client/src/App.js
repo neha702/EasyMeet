@@ -10,8 +10,8 @@ import Login from './Components/Login';
 import Home from './Components/Home';
 import Chat_app from './Components/Chat_main';
 import Video_main from './Components/Video_main';
-function App() {
 
+function App() {
   return (
     <>
       <Router>

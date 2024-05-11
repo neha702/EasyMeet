@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 const SocketContext = createContext();
 
-const socket = io('http://localhost:3001');
+const socket = io('http://localhost:8080');
 
 //Functions for our video-chat app
 const ContextProvider = ({ children }) => {

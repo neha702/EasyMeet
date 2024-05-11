@@ -54,13 +54,15 @@
 
     "@material-ui/icons": "^4.11.2",
 
-    "axios": "^0.24.0",
+    "axios": "^1.6.8",
+
+    "buffer": "^6.0.3",
 
     "font-awesome": "^4.7.0",
 
     "react": "^17.0.2",
 
-    "react-chat-engine": "^1.11.21",
+    "react-chat-engine": "^0.1.0",
 
     "react-copy-to-clipboard": "^5.0.4",
 
@@ -68,13 +70,15 @@
 
     "react-icons": "^4.3.1",
 
+    "react-icons-kit": "^2.0.0",
+
     "react-minimal-side-navigation": "^1.9.2",
 
     "react-responsive-sidebar": "^0.1.16",
 
     "react-router-dom": "^6.0.2",
 
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
 
     "reactjs-popup": "^2.0.5",
 
@@ -84,6 +88,8 @@
 
     "socket.io-client": "^4.4.0",
 
+    "util": "^0.12.5",
+
     "web-vitals": "^2.1.2"
 
   },
@@ -92,7 +98,7 @@
 
     "@types/react": "^17.0.37",
 
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^6.1.1"
 
   }
 

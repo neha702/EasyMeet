@@ -1,20 +1,22 @@
 import React from 'react'
-import { ChatEngine } from 'react-chat-engine'
-const projectID = "823247ef-1b1e-425f-bdaf-770785676dea";
-import ChatFeed from './Chat-app/ChatFeed';
-import Login from './Login'
 import "./Chat_main.css"
+import { Sidebar } from './Chat-app/Sidebar';
+import { Chat } from './Chat-app/Chat';
+import { CurrentUsers } from "../context/CurrentUserContext";
+import { ChatContextProvider } from '../context/ChatContext';
+
 export const Chat_main = () => {
-  if (!localStorage.getItem('username')) return <Login />;
-  // console.log(localStorage.getItem('username'));
   return (
-    <ChatEngine
-      height="100vh"
-      projectID={projectID}
-      userName={localStorage.getItem('username')}
-      userSecret={localStorage.getItem('password')}
-      renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
-    />
+  <CurrentUsers>
+  <ChatContextProvider>
+    <div className='chat_main'>
+      <div className='container'>
+        <Sidebar/>
+        <Chat/>
+      </div>
+    </div>
+  </ChatContextProvider>
+  </CurrentUsers>
   )
 }
 export default Chat_main;

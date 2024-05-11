@@ -5,6 +5,12 @@
 {
 color:white
 }
+.shift-right{
+   right:5px;
+   top:25px;
+   position: absolute;
+   display: flex;
+}
 .btn-custom
 {
     background-color:#6A5ACD ;
