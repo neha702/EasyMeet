@@ -3,6 +3,7 @@ import { getDoc, setDoc, updateDoc ,doc,serverTimestamp} from 'firebase/firestor
 import { db } from '../../firebase';
 import { AuthContext} from "../../context/CurrentUserContext";
 import axios from 'axios'
+import { ChatContext } from '../../context/ChatContext';
 
 
 export const Search = () => {
@@ -10,6 +11,7 @@ export const Search = () => {
   const [user,setUser]=useState(null)
   const [err,setErr]=useState(false)
   const { currentUser,loading } = useContext(AuthContext);
+  const {data,dispatch}=useContext(ChatContext)
 
   const handleSearch= async ()=>{
     var user = { "displayName":username };
@@ -20,7 +22,6 @@ export const Search = () => {
     };
     await axios(servers).then(function(response){
       if (response.statusText=='OK'){
-        console.log(response.data)
           setUser(response.data)
       }else{
           console.error("User data could not be retrieved successfully.")
@@ -28,6 +29,7 @@ export const Search = () => {
       }
   }).catch(function(error){
           console.error("Some exception or network error occured.",error)
+          setErr(true)
   })
   };
 
@@ -43,10 +45,16 @@ export const Search = () => {
       ? currentUser.uid+ user.uid
       : user.uid + currentUser.uid;
 
-      console.log(combinedId)
+      console.log("combined_id:",combinedId)
 
       try{
         const res=await getDoc(doc(db,"Chat",combinedId))
+
+        dispatch({ type: "CHANGE_USER", payload: {
+          uid: user.uid,
+          displayName: user.username,
+        } });
+
         if (!res.exists()){
           //create a chat in chats collection
           await setDoc(doc(db,"Chat",combinedId),{messages:[]})
@@ -67,6 +75,7 @@ export const Search = () => {
             },
             [combinedId + ".date"]: serverTimestamp(),
           })
+
           setUser(null)
           setUsername("")
         }
@@ -79,8 +88,8 @@ export const Search = () => {
       </div>
       {err && <span>User not found</span>}
       {user && <div className='userChat' onClick={handleSelect}>
-        <img src="https://up.yimg.com/ib/th?id=OIP.d4bih0HHr0rmqEqb1I1IdAHaHa&pid=Api&rs=1&c=1&qlt=95&w=117&h=117" alt=""/>
         <div className='userChatInfo'>
+          <img src="https://up.yimg.com/ib/th?id=OIP.d4bih0HHr0rmqEqb1I1IdAHaHa&pid=Api&rs=1&c=1&qlt=95&w=117&h=117" alt=""/>
           <span>{username}</span>
         </div>
       </div>}

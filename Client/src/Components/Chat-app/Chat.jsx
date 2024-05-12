@@ -8,8 +8,8 @@ import { ChatContext } from '../../context/ChatContext'
 import { useContext } from "react"
 
 export const Chat = () => {
-  const { data }=useContext(ChatContext)
-  console.log(data)
+  const { data,dispatch }=useContext(ChatContext)
+  console.log("userdata:",data.user)
 
   return (
     <div className='chat'>

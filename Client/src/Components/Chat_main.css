@@ -143,6 +143,7 @@
         justify-content: space-between;
         padding: 10px;
         color: lightgray;
+        font-weight: bold;
       }
 
       .chatIcons {
