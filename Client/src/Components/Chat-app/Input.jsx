@@ -12,10 +12,10 @@ export const Input = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
 
-  const {currentUser,loading} =useContext(AuthContext)
-  const {data,dispatch} =useContext(ChatContext)
+  const {currentUser,loading} =useContext(AuthContext);
+  const {data,dispatch} =useContext(ChatContext);
 
-  const handleSend=async(e)=>{
+  const handleSendKey= async()=>{
     await updateDoc(doc(db, "Chat", data.chatId), {
       messages: arrayUnion({
         id: uuid(),
@@ -42,9 +42,13 @@ export const Input = () => {
     setImg(null);
   }
 
+  const handleSend=(e)=>{
+   e.code==="Enter" && handleSendKey();
+  }
+
   return (
     <div className='input'>
-      <input type="text" placeholder='Type something...'  onChange={(e) => setText(e.target.value)}
+      <input type="text" id="myInput" placeholder='Message something...'  onKeyDown={handleSend} onChange={(e) => setText(e.target.value)}
         value={text}/>
       <div className='send'>
         <img src={Attach} alt=""/>                                 {/* File attachment  */}
@@ -52,7 +56,9 @@ export const Input = () => {
         <label htmlFor='file'>
           <img src={Img} alt=""/>                                  {/* Image attachment  */}
         </label>
-        <img src={Send} alt="" onClick={handleSend}/>
+        <button id="sendButton" className="imageButton" disabled={text.trim() === ""} onClick={handleSendKey}>
+        <img src={Send} alt="Button"/>
+        </button>
       </div>
     </div>
   )

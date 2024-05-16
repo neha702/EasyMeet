@@ -26,15 +26,21 @@ export const Search = () => {
       }else{
           console.error("User data could not be retrieved successfully.")
           setErr(true)
+          setUsername("")
       }
-  }).catch(function(error){
+  }).catch(function (error){
           console.error("Some exception or network error occured.",error)
           setErr(true)
+          setUsername("")
   })
   };
 
   const handleKey=(e)=>{
     e.code === "Enter" && handleSearch();
+    if (e.code === "Backspace" || err) {
+      setErr(false);
+      setUser(null);
+    }
   };
 
   const handleSelect=async()=>{
@@ -86,7 +92,7 @@ export const Search = () => {
       <div className='searchForm'>
         <input type="text" placeholder='Find a user...' onKeyDown={handleKey} onChange={e=>setUsername(e.target.value)}/>
       </div>
-      {err && <span>User not found</span>}
+      {err && <span style={{ color: 'white',fontStyle: 'italic',marginLeft:8 }}>User not found</span>}
       {user && <div className='userChat' onClick={handleSelect}>
         <div className='userChatInfo'>
           <img src="https://up.yimg.com/ib/th?id=OIP.d4bih0HHr0rmqEqb1I1IdAHaHa&pid=Api&rs=1&c=1&qlt=95&w=117&h=117" alt=""/>
