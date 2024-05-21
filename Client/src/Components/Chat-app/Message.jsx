@@ -1,6 +1,11 @@
+import { useContext } from 'react';
 import React from 'react'
+import { AuthContext } from '../../context/CurrentUserContext'
 
-export const Message = () => {
+const Message = ({message}) => {
+
+  const {currentUser,loading} =useContext(AuthContext);
+
   return (
     <div className='message'>
       <div className="messageInfo">
@@ -8,9 +13,11 @@ export const Message = () => {
         <span>Just Now</span>     {/* If message seen or not and by whom */}
       </div>
       <div className="messageContent">
-        <p>Yes</p>
-        {/*<img src="https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""/>    {/* What is actual message */}
+        <div className={(message.senderId === currentUser.uid)?'owner':'sender'}>
+           <p>{message.text}</p>    {/* What is actual message */}
+        </div>
       </div>
     </div>
   )
-}
+};
+export default Message;

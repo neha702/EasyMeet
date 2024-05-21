@@ -13,8 +13,7 @@ export const Chats = () => {
 
   useEffect(() => {
     const getChats = () => {
-      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        console.log(doc)
+      const unsub = onSnapshot(doc(db, "usersChat", currentUser.uid), (doc) => {
         setChats(doc.data());
       });
 
@@ -30,6 +29,7 @@ export const Chats = () => {
   }, [currentUser.uid]);
 
   const handleSelect = (u) => {
+    console.log("udata",u)
     dispatch({ type: "CHANGE_USER", payload: u });
   };
 
@@ -41,11 +41,12 @@ export const Chats = () => {
         key={chat[0]}
         onClick={() => handleSelect(chat[1].userInfo)}
       >
-        <img src="https://up.yimg.com/ib/th?id=OIP.d4bih0HHr0rmqEqb1I1IdAHaHa&pid=Api&rs=1&c=1&qlt=95&w=117&h=117"alt="" />
-        <div className="userChatInfo">
+      {chat[1].lastMessage && <img src="https://up.yimg.com/ib/th?id=OIP.d4bih0HHr0rmqEqb1I1IdAHaHa&pid=Api&rs=1&c=1&qlt=95&w=117&h=117"alt="" />}
+      {chat[1].lastMessage && <div className="userChatInfo">
           <span>{chat[1].userInfo.displayName}</span>
           <p>{chat[1].lastMessage?.text}</p>
         </div>
+      }
       </div>
     ))}
   </div>
